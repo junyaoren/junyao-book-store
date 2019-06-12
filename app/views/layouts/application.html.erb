@@ -19,6 +19,12 @@
 
     <div id = "columns">
       <div id = "side">
+
+        <div id= "cart">
+          <%= render 'search/search_form'%>
+        </div>
+
+
         <div id= "cart">
           <%= render @cart if @cart && !session[:user_id]%>
         </div>

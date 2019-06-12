@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <p>
   <strong>Name:</strong>
@@ -19,6 +21,19 @@
   <strong>Paytype:</strong>
   <%= @order.paytype %>
 </p>
+
+
+<br><br>
+<div class="cart_show">
+  <% Lineitem.where(:cart_id => @cart.id).each do |lineitem| %>
+    <ul>
+      <li><%= lineitem.quantity %> <%= "  -  " %> <%= lineitem.product.name %></li>
+    </ul>
+  <% end %>
+</div>
+
+
+
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
