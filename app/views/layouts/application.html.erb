@@ -20,8 +20,15 @@
     <div id = "columns">
       <div id = "side">
 
-        
 
+        <br>
+        <form action="/search/results", method="post">
+
+          <input type="text" name="query" value="">
+          <input type="submit" value="Search" style="display: inline-block">
+        </form>
+
+        <br><br>
 
         <div id= "cart">
           <%= render @cart if @cart && !session[:user_id]%>
