@@ -24,13 +24,7 @@
 
 
 <br><br>
-<div class="cart_show">
-  <% Lineitem.where(:cart_id => @cart.id).each do |lineitem| %>
-    <ul>
-      <li><%= lineitem.quantity %> <%= "  -  " %> <%= lineitem.product.name %></li>
-    </ul>
-  <% end %>
-</div>
+
 
 
 
