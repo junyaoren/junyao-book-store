@@ -1,0 +1,26 @@
+<h3>Items in your shopping cart: </h3>
+<br><br>
+<table>
+  <tbody>
+  <% Lineitem.where(:cart_id => @cart.id).each do |lineitem| %>
+    <tr>
+      <td><%= lineitem.quantity %></td>
+      <td><%= lineitem.product.name%></td>
+      <td><%= number_to_currency(lineitem.product.price * lineitem.quantity)%></td>
+    </tr>
+  <% end %>
+
+  <tr>
+    <td><%= "Total" %></td>
+    <td></td>
+    <td><%= number_to_currency(@cart.total_price)%></td>
+  </tr>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= button_to 'Check Out', new_order_path, method: :get %>
+
