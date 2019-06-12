@@ -4,7 +4,8 @@
 <% end %>
 
 <% if session[:search_info] %>
-  <p id="notice"><%= session[:search_info] = nil %></p>
+  <p id="notice"><%= session[:search_info] %></p>
+  <% session[:search_info] = nil %>
 <% end %>
 
 <h1>Product Catalog</h1>
